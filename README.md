@@ -168,4 +168,4 @@ sheet1 <- "SPME_T33_M13_STREZ-SUBSET-BLANKS.csv"
 ```
 
 ## Once all changes are complete:
-Use **"OPT+COMMAND+R"** or **"SHIFT+COMMAND+ENTER"** on your keyboard to run the entire script. Repeat the above edits as necessary.
+Use **"OPT+COMMAND+R"** on your keyboard to run the entire script. Repeat the above edits as necessary.
