@@ -1,7 +1,0 @@
-# Gas Chromatography-Mass Spectrometry: Compound Identities
-
-This file contains the R code script required to allocate and then subset BLANK compound identities from GC-MS text files which were converted to `.csv`, in the paper:
-
-Walker, B.J.J., Letnic, M., Bucknall, M.P., Watson, L. & Jordan, N.R. in prep. Dingo scents code for age, and wild dingoes respond  to the difference. Animal Behaviour.
-
-
