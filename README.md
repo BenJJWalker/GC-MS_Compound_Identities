@@ -1,5 +1,7 @@
 # Gas Chromatography-Mass Spectrometry: Compound Identities
 
+[![DOI](https://zenodo.org/badge/149698691.svg)](https://zenodo.org/badge/latestdoi/149698691)
+
 This repository contains the R code scripts required to allocate and then subset compound identities from GC-MS text files which were converted to `.csv`, in the paper:
 
 **Walker, B.J.J., Letnic, M., Bucknall, M.P., Watson, L., & Jordan, N.R.,** Dingo scents code for age, and wild dingoes respond  to the difference. Animal Behaviour.
