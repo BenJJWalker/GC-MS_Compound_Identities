@@ -2,7 +2,7 @@
 
 This repository contains the R code scripts required to allocate and then subset compound identities from GC-MS text files which were converted to `.csv`, in the paper:
 
-**Dingo scents code for age, and wild dingoes respond  to the difference. Animal Behaviour.**
+**Walker, B.J.J., Letnic, M., Bucknall, M.P., Watson, L., & Jordan, N.R.,** Dingo scents code for age, and wild dingoes respond  to the difference. Animal Behaviour.
 
 This code can be adapted to any text file that contains data from gas chromatography-mass spectrometry outputs. It compares both the weighted and reverse scores of an identity, and selects those identities with **both scores above 80**; since [Robley et al. (2015)](https://www.researchgate.net/profile/Alan_Robley/publication/290195212_Dingo_Semiochemicals_Towards_a_non-lethal_control_tool_for_the_management_of_dingoes_and_wild_dogs_in_Australia/links/569579c608aeab58a9a4ec2f/Dingo-Semiochemicals-Towards-a-non-lethal-control-tool-for-the-management-of-dingoes-and-wild-dogs-in-Australia.pdf) considered compounds matched <80 as unknowns, whilst those >90 were excellent. Our unsupervised process drastically reduces compound identification time from multiple months to around *30 seconds per sample*. 
 
@@ -19,7 +19,7 @@ Reasoning for using each function in the script is noted next to the function. T
 
 ## Instructions
 
-All analyses were done in `R`. 
+All analyses were done in `R`. Convert `.txt` files to `.csv` using the `Save As` function by selecting `"CSV UTF-8 (Comma delimited) (.csv)"` in Microsoft Excel.
 
 To allocate compound identities we use the [`dplyr`](https://github.com/tidyverse/dplyr) and [`plyr`](https://github.com/tidyverse/plyr) packages for `R`, by [Wickham et al. (2017)](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf) and [Wickham (2017)](https://cran.r-project.org/web/packages/plyr/index.html). You can install `dplyr` and `plyr` using:
 
@@ -28,10 +28,11 @@ install.packages("dplyr")
 install.packages("plyr")
 ```
 
-First, you need to subset each blank GC-MS `.csv` file using the code in [`1-BLANK_CODE-Compound_identities`](https://github.com/BenJJWalker/GC-MS_Compound_Identities/1-BLANK_CODE-Compound_identities). We subset four chromatogram-blank `.csv` data files; two vials at the beginning of a gc-ms run, and then the same vials re-sampled at the end of the run. You can do two blanks as a minimum; in which case you would delete redundant code from this script.
+First, you need to subset each blank GC-MS `.csv` file using the code in [`1-BLANK_CODE-Compound_identities`](https://github.com/BenJJWalker/GC-MS_Compound_Identities/blob/master/Scripts/1-BLANK_CODE-Compound_identities.R). We subset four chromatogram-blank `.csv` data files; two vials at the beginning of a gc-ms run, and then the same vials re-sampled at the end of the run. You can do two blanks as a minimum; in which case you would delete redundant code from this script.
 
+You can use the **SHIFT+COMMAND+O** to open the file's option menu for easy navigation around the document.
 
-### Edits required before running code in [`2-SUBSET_CODE-Compound_identities`](https://github.com/BenJJWalker/GC-MS_Compound_Identities/2-SUBSET_CODE-Compound_identities) 
+### Edits required before running code in [`2-SUBSET_CODE-Compound_identities`](https://github.com/BenJJWalker/GC-MS_Compound_Identities/blob/master/Scripts/2-SUBSET_CODE-Compound_identities.R) 
     
 
 **1.** Change each of the folder addresses below to the folder where your blanks and sample are located.
@@ -70,7 +71,7 @@ filenames4 <- c("RT", "Name", "Weighted", "Reverse")
 
 
 
-**4.** Change the name of the `Prelim` object. Ensure the encoding is `"UTF-8"` so you can retain odd symbols.
+**4.** Change the pathway of the `Prelim` object. Ensure the encoding is `"UTF-8"` so you can retain odd symbols.
 
 ```
 Prelim <- read.csv("Longevity/1. Excel Files/5. Sixth Run/SPME_T33_M13_STREZ.csv", encoding = "UTF-8")
@@ -99,7 +100,7 @@ removed.RT_Name$Area <- NULL
 
 
 ## Things to change for specific samples:
-- *Demographic Information*: This information forms part of your multivariate analyses later, and can be altered to give you the information attached to each sample that is being subset. Below, the examples correspond to: dingo urine, treatment, the origin of the sample, how old the dingo was, etcetera. It would be useful to include the name of the sampled individual.
+- *Demographic Information*: This information forms part of your multivariate analyses later, and can be altered to give you the information attached to each sample that is being subset. Below, the examples correspond to: dingo urine, treatment, the origin of the sample, how old the dingo was, etcetera. *It would be useful to include the name of the sampled individual.*
 
 **7.** Get a new column for demographic information: urine treatment.
 
@@ -133,7 +134,6 @@ removed.RT_Name$UR_Age <- "11" # Change This Every Time For The Specific Individ
 ```
 removed.RT_Name["xxxx"] <- NA 
 removed.RT_Name$xxxx <- "xx" # Change This Every Time For The Specific Individual
-
 ```
 
 
@@ -153,7 +153,7 @@ total <- rbind.fill(Prelim1, Prelim2, Prelim3, Prelim4, removed.RT_Name)
 
 
 
-**13.** Change the name of the animal which donated the sample. This allows the extraction to more easily occur as you are subsetting based on the unique name of the animal which is not present in any blanks. 
+**13.** Change the name of the animal which donated the sample. This allows the data extraction to more easily occur as you are subsetting based on the unique name of the animal which is not present in any blanks. 
 
 ```
 # Change this name every time; extracts based on UR Name
@@ -169,3 +169,10 @@ sheet1 <- "SPME_T33_M13_STREZ-SUBSET-BLANKS.csv"
 
 ## Once all changes are complete:
 Use **"OPT+COMMAND+R"** on your keyboard to run the entire script. Repeat the above edits as necessary.
+
+
+## 
+
+The [`1-BLANK_CODE-Compound_identities`](https://github.com/BenJJWalker/GC-MS_Compound_Identities/blob/master/Scripts/1-BLANK_CODE-Compound_identities.R) follows the exact same principles as this script, except we have included script which repeats (and which can be subset on its own), to cover the correct amount of blanks you may have used. This means that if you have three blanks, say, you would change the three parts of the script related to each, and delete the fourth part, so that after all edits, you only need to run the script once to get all `.csv` files required.
+
+## NOTE*: Ordering and clear management of all files (`.csv, .txt, etc.`) on your operating system is a *must*, and will make this process much easier. 
