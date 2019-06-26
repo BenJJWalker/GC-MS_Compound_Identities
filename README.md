@@ -1,6 +1,6 @@
 # Gas Chromatography-Mass Spectrometry: Compound Identities
 
-[![DOI](https://zenodo.org/badge/149698691.svg)](https://zenodo.org/badge/latestdoi/149698691)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3257034.svg)](https://doi.org/10.5281/zenodo.3257034)
 
 This repository contains the R code scripts required to allocate and then subset compound identities from GC-MS text files which were converted to `.csv`, in the paper:
 
