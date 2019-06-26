@@ -4,9 +4,9 @@
 
 This repository contains the R code scripts required to allocate and then subset compound identities from GC-MS text files which were converted to `.csv`, in the paper:
 
-**Walker, B.J.J., Letnic, M., Bucknall, M.P., Watson, L., & Jordan, N.R.,** Dingo scents code for age, and wild dingoes respond  to the difference. 
+**Walker, B.J.J., Letnic, M., Bucknall, M.P., Watson, L., & Jordan, N.R.,** Act your age: Dingo scents code for age and wild dingoes can decipher that signal.
 
-This code can be adapted to any text file that contains data from gas chromatography-mass spectrometry outputs. It compares both the weighted and reverse scores of an identity, and selects those identities with **both scores above 80**; since [Robley et al. (2015)](https://www.researchgate.net/profile/Alan_Robley/publication/290195212_Dingo_Semiochemicals_Towards_a_non-lethal_control_tool_for_the_management_of_dingoes_and_wild_dogs_in_Australia/links/569579c608aeab58a9a4ec2f/Dingo-Semiochemicals-Towards-a-non-lethal-control-tool-for-the-management-of-dingoes-and-wild-dogs-in-Australia.pdf) considered compounds matched <80 as unknowns, whilst those >90 were excellent. Our unsupervised process drastically reduces compound identification time from multiple months to around *30 seconds per sample*. 
+This code can be adapted to any text file that contains data from gas chromatography-mass spectrometry outputs. It compares both the weighted and reverse scores of an identity, and selects those identities with **both scores above 80**; since [Robley et al. (2015)](https://www.researchgate.net/profile/Alan_Robley/publication/290195212_Dingo_Semiochemicals_Towards_a_non-lethal_control_tool_for_the_management_of_dingoes_and_wild_dogs_in_Australia/links/569579c608aeab58a9a4ec2f/Dingo-Semiochemicals-Towards-a-non-lethal-control-tool-for-the-management-of-dingoes-and-wild-dogs-in-Australia.pdf) considered compounds matched <80 as unknowns, whilst those >90 were excellent and likely indicative of a correct structural identification. These scripts produce a full list of chemicals collected by the GC-MS fibre from each sample analysed. Our unsupervised process drastically reduces compound identification time from multiple months to around *30 seconds per sample*. 
 
 Our code has been adapted from:
 
